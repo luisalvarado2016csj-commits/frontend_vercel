@@ -1,0 +1,52 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <div class="logo-icon">🥩</div>
+      <h1>MeatScan <span class="accent-text">AI</span></h1>
+      <p>Sistema Inteligente de Auditoría Térmica</p>
+    </div>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm" class="login-form">
+      <div class="input-group">
+        <label for="username">Usuario Corporativo</label>
+        <div class="input-wrapper">
+          <span class="icon">👤</span>
+          <input 
+            type="text" 
+            id="username" 
+            name="username" 
+            [(ngModel)]="username" 
+            placeholder="Ej: admin" 
+            required>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Contraseña de Seguridad</label>
+        <div class="input-wrapper">
+          <span class="icon">🔒</span>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            [(ngModel)]="password" 
+            placeholder="••••••••" 
+            required>
+        </div>
+      </div>
+
+      <div *ngIf="errorMessage" class="error-toast">
+        ⚠️ {{ errorMessage }}
+      </div>
+
+      <button type="submit" class="btn-login" [disabled]="!loginForm.form.valid">
+        <span>Ingresar al Sistema</span>
+        <span class="arrow">→</span>
+      </button>
+    </form>
+    
+    <div class="login-footer">
+      <p>UNFV • Facultad de Ingeniería de Sistemas</p>
+    </div>
+  </div>
+</div>
